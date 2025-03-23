@@ -1,10 +1,10 @@
-import './App.css';
+import EmoScanHomepage from "EmoHomepage";
 
 function App() {
   return (
-   <div>
-    testtttt
-   </div>
+    <div>
+      <EmoHomepage />
+    </div>
   );
 }
 
