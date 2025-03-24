@@ -6,8 +6,8 @@
 
 - **LEBBAR Yasmine** | GROUPE A - 5  
 - **IDRISSI Hamza** | GROUPE A - 5  
-- **EL OUAGHLIDI Zineb** | GROUPE A - 5
-- **EL-HAYOUNI Meriem** | GROUPE A - 5
+- **EL OUAGHLIDI Zineb** | GROUPE A - 5  
+- **EL-HAYOUNI Meriem** | GROUPE A - 5  
 
 ## Objectif du projet
 Créer une application intelligente capable de :
@@ -23,6 +23,7 @@ Créer une application intelligente capable de :
 - **SQL** : Base de données relationnelle pour stocker les informations.
 
 ### Front-end
+- **React** : Bibliothèque JavaScript pour construire l'interface utilisateur dynamique.
 - **HTML / CSS / JavaScript** : Pour la création de l'interface utilisateur web.
 
 ### Intelligence artificielle
@@ -64,7 +65,7 @@ python -m venv venv
 source venv/bin/activate  # Sur Windows : venv\Scripts\activate
 ```
 
-3. **Installer les dépendances :**
+3. **Installer les dépendances back-end :**
 ```bash
 pip install -r requirements.txt
 ```
@@ -74,10 +75,17 @@ pip install -r requirements.txt
 python app.py
 ```
 
-5. **Accéder à l'application :**
+5. **Installation et lancement du front-end React :**
+```bash
+cd frontend
+npm install
+npm start
+```
+
+6. **Accéder à l'application :**
 Ouvrez un navigateur et accédez à :
 ```
-http://localhost:5000
+http://localhost:3000
 ```
 
 ## Structure du projet
@@ -87,5 +95,9 @@ http://localhost:5000
 │   ├── static/             # Ressources statiques (CSS, JS)
 │   ├── templates/          # Pages HTML
 │   ├── models/             # Modèles de la base de données
+│   ├── frontend/           # Application React
 │   └── requirements.txt    # Dépendances Python
-└── REA
+└── README.md               # Documentation du projet
+```
+
+## Am
