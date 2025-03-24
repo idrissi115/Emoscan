@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import logo from "../../images/logo.png"
+import { useNavigate } from 'react-router-dom'; // Importation de useNavigate
 
 const Navbar = () => {
+
+  const navigate = useNavigate(); // Définition de navigate
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+
+   // Fonction pour rediriger l'utilisateur
+   const handleNavigation = (path) => {
+    navigate(path); // Utilisation de navigate pour la redirection
   };
 
   return (
@@ -22,10 +32,9 @@ const Navbar = () => {
         {/* Menu Links */}
         <div className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
           <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/about">À propos</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li onClick={() => handleNavigation('/home')}>Accueil</li>
+            <li onClick={() => handleNavigation('/connexion')}>Connexion</li>
+            <li onClick={() => handleNavigation('/')}>Inscription</li>
           </ul>
         </div>
 
