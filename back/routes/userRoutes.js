@@ -12,6 +12,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+
 // POST : Ajouter un utilisateur
 router.post('/', async (req, res) => {
   const { name, email, password } = req.body;
