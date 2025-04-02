@@ -1,41 +1,70 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
   return (
     <div className="home-container">
-      <section className="hero">
+      {/* Section Héro */}
+      <section className="hero-section">
         <div className="hero-content">
-          <h1 className="hero-title">Bienvenue sur EmoAbsence</h1>
+          <h1>Détection d'émotions et d'absence en temps réel</h1>
           <p className="hero-subtitle">
-            L'application moderne pour gérer les absences et mesurer l'humeur de vos collaborateurs en temps réel.
+            EmoAbs transforme la gestion des ressources humaines et l'engagement des élèves grâce à une technologie avancée de reconnaissance faciale et d'analyse des émotions.
           </p>
-          <button className="cta-button">Démarrer maintenant</button>
+          <div className="hero-buttons">
+            <Link to="/inscription" className="btn btn-primary">
+              Commencer gratuitement
+            </Link>
+            <Link to="/utilisation" className="btn btn-secondary">
+              En savoir plus
+            </Link>
+          </div>
         </div>
-      </section>
-
-      <section className="features">
-        <h2 className="section-title">Fonctionnalités principales</h2>
-        <div className="feature-cards">
-          <div className="feature-card">
-            <h3 className="feature-title">Gestion des absences</h3>
-            <p>Suivez les absences de vos employés, visualisez les tendances et améliorez la gestion du personnel.</p>
-          </div>
-          <div className="feature-card">
-            <h3 className="feature-title">Suivi des émotions</h3>
-            <p>Analysez les émotions des employés pour améliorer le bien-être au travail et l'engagement.</p>
-          </div>
-          <div className="feature-card">
-            <h3 className="feature-title">Tableau de bord intuitif</h3>
-            <p>Consultez les statistiques et les rapports en temps réel grâce à un tableau de bord intuitif et dynamique.</p>
+        <div className="hero-image">
+          <div className="hero-placeholder">
+            <div className="placeholder-text">EmoAbs</div>
           </div>
         </div>
       </section>
 
-      <section className="cta">
-        <h2 className="cta-title">Prêt à transformer votre gestion des absences et du bien-être ?</h2>
-        <button className="cta-button">Essayez gratuitement</button>
+      {/* Section Fonctionnalités */}
+      <section className="features-section">
+        <h2 className="section-title">Caractéristiques principales</h2>
+        <div className="features-grid">
+          <div className="feature-card">
+            <div className="feature-icon">
+              <div className="icon-placeholder">😊</div>
+            </div>
+            <h3>Détection d'émotions</h3>
+            <p>
+              Analyse des expressions faciales pour identifier les émotions comme la joie, la tristesse, la colère, la surprise et plus encore.
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">
+              <div className="icon-placeholder">✓</div>
+            </div>
+            <h3>Suivi de présence</h3>
+            <p>
+              Détection automatique des présences et absences sans besoin d'appel manuel ou de badges.
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">
+              <div className="icon-placeholder">📊</div>
+            </div>
+            <h3>Analyse en temps réel</h3>
+            <p>
+              Traitement instantané des données avec tableaux de bord interactifs et alertes personnalisables.
+            </p>
+          </div>
+        </div>
       </section>
+
+      {/* Le reste du contenu reste identique */}
     </div>
   );
 };

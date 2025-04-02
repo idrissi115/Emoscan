@@ -1,48 +1,87 @@
-import React, { useState } from 'react';
-import './Navbar.css';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import logo from "../../images/logo.png"
-import { useNavigate } from 'react-router-dom'; // Importation de useNavigate
+import './Navbar.css';
+
 
 const Navbar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
-  const navigate = useNavigate(); // Définition de navigate
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  useEffect(() => {
+    // Vérifier si l'utilisateur est connecté (à adapter selon votre logique d'authentification)
+    const token = localStorage.getItem('token');
+    setIsLoggedIn(!!token);
+  }, []);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-
-   // Fonction pour rediriger l'utilisateur
-   const handleNavigation = (path) => {
-    navigate(path); // Utilisation de navigate pour la redirection
+    setMenuOpen(!menuOpen);
   };
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        {/* Logo */}
-        <div className="navbar-logo">
-          <a href="/">
-            <img className='logo' src={logo} alt=''/>
-          </a>
+        <Link to="/" className="navbar-logo">
+          <img src={logo} alt="EmoAbs Logo" className="logo-image" />
+          <span className="logo-text">AbsEmo</span>
+        </Link>
+
+        <div className={`menu-icon ${menuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
         </div>
 
-        {/* Menu Links */}
-        <div className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
-          <ul>
-            <li onClick={() => handleNavigation('/home')}>Accueil</li>
-            <li onClick={() => handleNavigation('/connexion')}>Connexion</li>
-            <li onClick={() => handleNavigation('/')}>Inscription</li>
-          </ul>
-        </div>
+        <ul className={`nav-menu ${menuOpen ? 'active' : ''}`}>
+          <li className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
+            <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>
+              Accueil
+            </Link>
+          </li>
+          <li className={`nav-item ${location.pathname === '/utilisation' ? 'active' : ''}`}>
+            <Link to="/utilisation" className="nav-link" onClick={() => setMenuOpen(false)}>
+              Guide d'utilisation
+            </Link>
+          </li>
+          <li className={`nav-item ${location.pathname === '/about' ? 'active' : ''}`}>
+            <Link to="/about" className="nav-link" onClick={() => setMenuOpen(false)}>
+              À propos
+            </Link>
+          </li>
+          <li className={`nav-item ${location.pathname === '/contact' ? 'active' : ''}`}>
+            <Link to="/contact" className="nav-link" onClick={() => setMenuOpen(false)}>
+              Contact
+            </Link>
+          </li>
+        </ul>
 
-        {/* Burger Icon for mobile */}
-        <div className="navbar-burger" onClick={toggleMenu}>
-          <div className={`burger-line ${isMenuOpen ? 'open' : ''}`}></div>
-          <div className={`burger-line ${isMenuOpen ? 'open' : ''}`}></div>
-          <div className={`burger-line ${isMenuOpen ? 'open' : ''}`}></div>
+        <div className="nav-auth">
+          {isLoggedIn ? (
+            <>
+              <Link to="/dashboard" className="dashboard-btn">
+                Dashboard
+              </Link>
+              <button 
+                className="logout-btn"
+                onClick={() => {
+                  localStorage.removeItem('token');
+                  setIsLoggedIn(false);
+                }}
+              >
+                Déconnexion
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/connexion" className="login-btn">
+                Connexion
+              </Link>
+              <Link to="/inscription" className="signup-btn">
+                Inscription
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </nav>

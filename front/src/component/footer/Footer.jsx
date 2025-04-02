@@ -8,7 +8,7 @@ const Footer = () => {
         {/* Section de gauche - Logo et Informations */}
         <div className="footer-left">
           <a href="/" className="footer-logo">
-            MyLogo
+            AbsEmo
           </a>
           <p className="footer-description">
             Votre source pour des solutions modernes et innovantes dans le domaine de la technologie.
@@ -29,23 +29,19 @@ const Footer = () => {
         {/* Section de droite - Réseaux sociaux */}
         <div className="footer-right">
           <h3>Suivez-nous</h3>
-          <div className="social-links">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-          </div>
+          <ul className="social-media">
+            <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+            <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+          
         </div>
       </div>
 
       {/* Copyright Section */}
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} MyCompany. Tous droits réservés.</p>
+        <p>&copy; {new Date().getFullYear()} AbsEmo. Tous droits réservés.</p>
       </div>
     </footer>
   );
