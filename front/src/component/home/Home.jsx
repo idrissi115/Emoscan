@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import { useNavigate } from 'react-router-dom';
 import imagesection from '../../images/imagesection.png';
+import logo from '../../images/logo.png'; // Assurez-vous que le chemin est correct
 
 function Home() {
   const navigate = useNavigate();
@@ -11,7 +12,8 @@ function Home() {
       <header className="header">
         <div className="container">
           <div className="logo">
-            <h1>Emoscan</h1>
+          <img src={logo} alt="AbsEmo Logo" className="logo-image" />
+            <h1>AbsEmo</h1>
           </div>
           <nav>
             <ul>
@@ -33,7 +35,7 @@ function Home() {
                 <p className="hero-subtitle">Transformez vos données en insights avec notre plateforme d'analyse avancée</p>
                 <div className="hero-buttons">
                   <button onClick={() => navigate('/app')} className="btn btn-primary yasmine">Emotions</button>
-                  <button onClick={() => navigate('/absence')} className="btn btn-secondary">Absence</button>
+                  <button onClick={() => navigate('/absence')} className="btn btn-zineb">Absence</button>
                 </div>
                 <div className="hero-stats">
                   <div className="stat-item">
