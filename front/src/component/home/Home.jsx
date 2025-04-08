@@ -1,18 +1,17 @@
 import React from 'react';
 import './Home.css';
 import { useNavigate } from 'react-router-dom';
-import imagesection from '../../images/imagesection.png';
-import logo from '../../images/logo.png'; // Assurez-vous que le chemin est correct
+import logo from '../../images/logo.png';
 
 function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="home">
+    <div className="home dark-theme">
       <header className="header">
         <div className="container">
           <div className="logo">
-          <img src={logo} alt="AbsEmo Logo" className="logo-image" />
+            <img src={logo} alt="AbsEmo Logo" className="logo-image" />
             <h1>AbsEmo</h1>
           </div>
           <nav>
@@ -31,33 +30,63 @@ function Home() {
           <div className="container">
             <div className="hero-content">
               <div className="hero-text">
-                <h2 style={{color:"#1d4ed8"}}>Détection d'Émotions et d'Absences en Temps Réel</h2>
-                <p className="hero-subtitle">Transformez vos données en insights avec notre plateforme d'analyse avancée</p>
+                <h1>
+                  <span className="headline-primary">AI-Powered</span><br />
+                  <span className="headline-accent">Emotion & Absence</span><br />
+                  <span className="headline-primary">Detection</span>
+                </h1>
+                <p className="hero-subtitle">
+                  Transform data into actionable insights with our sophisticated AI
+                  platform for precise emotion analysis and absence detection.
+                </p>
                 <div className="hero-buttons">
-                  <button onClick={() => navigate('/app')} className="btn btn-primary yasmine">Emotions</button>
-                  <button onClick={() => navigate('/absence')} className="btn btn-zineb">Absence</button>
+                  <button onClick={() => navigate('/app')} className="btn btn-primary">
+                    Explore Emotions <span className="icon">→</span>
+                  </button>
+                  <button onClick={() => navigate('/absence')} className="btn btn-secondary">
+                    Track Absence <span className="icon">→</span>
+                  </button>
                 </div>
                 <div className="hero-stats">
-                  <div className="stat-item">
-                    <span className="stat-number">99.9%</span>
-                    <span className="stat-label">Précision</span>
+                  <div className="stat-box">
+                    <span className="stat-number">99.8%</span>
+                    <span className="stat-label">Accuracy</span>
                   </div>
-                  <div className="stat-item">
+                  <div className="stat-box">
                     <span className="stat-number">24/7</span>
                     <span className="stat-label">Support</span>
                   </div>
+                  <div className="stat-box">
+                    <span className="stat-number">50K+</span>
+                    <span className="stat-label">Users</span>
+                  </div>
                 </div>
               </div>
-              <div className="hero-animation">
-                <div className="ai-head-container">
-                  <img 
-                    src={imagesection} 
-                    alt="AI Head" 
-                    className="ai-head-image"
-                  />
-                  <div className="ai-head-overlay">
-                    <div className="ai-head-glow"></div>
-                    <div className="ai-head-particles"></div>
+              <div className="hero-visualization">
+                <div className="ai-network">
+                  <div className="network-center">
+                  </div>
+                  <div className="network-nodes">
+                    <div className="node node-1">
+                      <div className="node-label">Real-time Analysis</div>
+                    </div>
+                    <div className="node node-2">
+                      <div className="node-label">Secure Processing</div>
+                    </div>
+                    <div className="node node-3">
+                      <div className="node-label">Precision Detection</div>
+                    </div>
+                    <div className="node node-4"></div>
+                    <div className="node node-5"></div>
+                    <div className="node node-6"></div>
+                  </div>
+                  <div className="network-lines">
+                    <div className="line line-1"></div>
+                    <div className="line line-2"></div>
+                    <div className="line line-3"></div>
+                    <div className="line line-4"></div>
+                    <div className="line line-5"></div>
+                    <div className="line line-6"></div>
                   </div>
                 </div>
               </div>
@@ -99,70 +128,41 @@ function Home() {
         <section id="about" className="about">
           <div className="container">
             <div className="section-header">
-              <span className="section-badge">À propos</span>
               <h2>Notre Mission</h2>
-              <p className="section-subtitle">Transformer l'analyse émotionnelle avec l'IA</p>
+              <p>Transformer l'analyse émotionnelle avec l'IA</p>
             </div>
             
-            <div className="about-grid">
-              <div className="about-content">
-                <div className="about-text">
-                  <p className="about-description" style={{textAlign:"center", color:"gray", fontFamily:"Arial"}}>
-                    Nous révolutionnons la façon dont les entreprises comprennent et interagissent avec leur audience. Notre technologie d'IA de pointe permet des analyses émotionnelles précises et une gestion efficace des présences.
-                  </p>
-                  
-                  <div className="features-grid">
-                    <div className="feature-card">
-                      <div className="feature-icon">
-                        <span className="icon">🤖</span>
-                      </div>
-                      <h3>IA Avancée</h3>
-                      <p>Technologie de pointe pour une analyse précise des émotions</p>
-                    </div>
-                    
-                    <div className="feature-card">
-                      <div className="feature-icon">
-                        <span className="icon">🎯</span>
-                      </div>
-                      <h3>Précision</h3>
-                      <p>Détection fiable avec un taux de succès de 99.9%</p>
-                    </div>
-                    
-                    <div className="feature-card">
-                      <div className="feature-icon">
-                        <span className="icon">⚡</span>
-                      </div>
-                      <h3>Temps Réel</h3>
-                      <p>Analyse instantanée pour des décisions rapides</p>
-                    </div>
-                    
-                    <div className="feature-card">
-                      <div className="feature-icon">
-                        <span className="icon">🔒</span>
-                      </div>
-                      <h3>Sécurité</h3>
-                      <p>Protection maximale des données</p>
-                    </div>
-                  </div>
-
-                  <div className="stats-container">
-                    <div className="stat-card">
-                      <span className="stat-number">50k+</span>
-                      <span className="stat-label">Utilisateurs Actifs</span>
-                    </div>
-                    <div className="stat-card">
-                      <span className="stat-number">24/7</span>
-                      <span className="stat-label">Support Disponible</span>
-                    </div>
-                    <div className="stat-card">
-                      <span className="stat-number">99.9%</span>
-                      <span className="stat-label">Précision</span>
-                    </div>
-                  </div>
+            <div className="about-content">
+              <p className="about-description">
+                Nous révolutionnons la façon dont les entreprises comprennent et interagissent avec leur audience. 
+                Notre technologie d'IA de pointe permet des analyses émotionnelles précises et une gestion efficace des présences.
+              </p>
+              
+              <div className="features-grid">
+                <div className="feature-item">
+                  <div className="feature-icon">🤖</div>
+                  <h3>IA Avancée</h3>
+                  <p>Technologie de pointe pour une analyse précise</p>
+                </div>
+                
+                <div className="feature-item">
+                  <div className="feature-icon">🎯</div>
+                  <h3>Précision</h3>
+                  <p>Détection fiable avec un taux de succès de 99.8%</p>
+                </div>
+                
+                <div className="feature-item">
+                  <div className="feature-icon">⚡</div>
+                  <h3>Temps Réel</h3>
+                  <p>Analyse instantanée pour des décisions rapides</p>
+                </div>
+                
+                <div className="feature-item">
+                  <div className="feature-icon">🔒</div>
+                  <h3>Sécurité</h3>
+                  <p>Protection maximale des données</p>
                 </div>
               </div>
-
-            
             </div>
           </div>
         </section>
@@ -170,7 +170,7 @@ function Home() {
         <section id="contact" className="contact">
           <div className="container">
             <div className="section-header">
-              <h2 style={{color:"#3b82f6"}}>Contactez-nous</h2>
+              <h2>Contactez-nous</h2>
               <p>Nous sommes là pour répondre à toutes vos questions</p>
             </div>
             <div className="contact-grid">
@@ -190,7 +190,6 @@ function Home() {
               </div>
               <form className="contact-form" onSubmit={(e) => {
                 e.preventDefault();
-                // Ajoutez ici la logique d'envoi du formulaire
                 alert('Message envoyé avec succès !');
                 e.target.reset();
               }}>
@@ -228,7 +227,6 @@ function Home() {
                 </div>
                 <button type="submit" className="btn btn-primary">
                   Envoyer
-                  <span className="btn-shine"></span>
                 </button>
               </form>
             </div>
@@ -236,7 +234,7 @@ function Home() {
         </section>
       </main>
 
-   
+      
     </div>
   );
 }
