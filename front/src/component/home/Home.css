@@ -252,17 +252,67 @@ main {
   height: 100%;
 }
 
+/* Network Center avec l'icône animée du cerveau */
 .network-center {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.3), rgba(0, 180, 216, 0.1));
+  width: 80px;
+  height: 80px;
+  background: rgba(15, 23, 42, 0.8);
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-shadow: 0 0 40px rgba(59, 130, 246, 0.5);
-  animation: pulse 2s infinite ease-in-out;
+  z-index: 10;
+  overflow: visible;
+}
+
+.center-icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.brain-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.5h2.96a.5.5 0 0 0 .5-.5v-15a.5.5 0 0 0-.5-.5z'%3E%3C/path%3E%3Cpath d='M7.5 4.5A2.5 2.5 0 0 1 5 2a2.5 2.5 0 0 1 2.5 2.5v15a2.5 2.5 0 0 1-2.5 2.5 2.5 2.5 0 0 1 2.5-2.5z'%3E%3C/path%3E%3Cpath d='M14.5 4.5A2.5 2.5 0 0 0 17 2a2.5 2.5 0 0 0-2.5 2.5v15a2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0-2.5-2.5z'%3E%3C/path%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.5h2.96a.5.5 0 0 0 .5-.5v-15a.5.5 0 0 0-.5-.5z'%3E%3C/path%3E%3Cpath d='M7.5 4.5A2.5 2.5 0 0 1 5 2a2.5 2.5 0 0 1 2.5 2.5v15a2.5 2.5 0 0 1-2.5 2.5 2.5 2.5 0 0 1 2.5-2.5z'%3E%3C/path%3E%3Cpath d='M14.5 4.5A2.5 2.5 0 0 0 17 2a2.5 2.5 0 0 0-2.5 2.5v15a2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0-2.5-2.5z'%3E%3C/path%3E%3C/svg%3E");
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  position: relative;
+  animation: spin 12s linear infinite;
+}
+
+.brain-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+  opacity: 0.2;
+  animation: brain-pulse 2s infinite ease-out;
+}
+
+/* Animation des particules de données */
+.data-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  opacity: 0.7;
+  box-shadow: 0 0 4px var(--primary-color);
+  animation: float-data 3s linear infinite;
 }
 
 .network-nodes {
@@ -365,10 +415,10 @@ main {
 
 .line {
   position: absolute;
-  height: 1px;
-  background: linear-gradient(90deg, var(--primary-color), transparent);
-  opacity: 0.3;
-  animation: line-pulse 3s infinite ease-in-out;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+  opacity: 0.4;
+  animation: data-flow 3s infinite ease-in-out;
 }
 
 .line-1 {
@@ -641,6 +691,72 @@ main {
   }
   100% {
     opacity: 0.2;
+  }
+}
+
+/* Animations pour l'icône du cerveau */
+@keyframes brain-pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.2;
+  }
+}
+
+@keyframes float-data {
+  0% {
+    transform: translate(var(--tx, -20px), var(--ty, -20px));
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes data-flow {
+  0% {
+    opacity: 0.2;
+    background-position: 0% 50%;
+  }
+  50% {
+    opacity: 0.5;
+    background-position: 100% 50%;
+  }
+  100% {
+    opacity: 0.2;
+    background-position: 0% 50%;
   }
 }
 

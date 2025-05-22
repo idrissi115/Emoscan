@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-import logo from "../../images/logo.png"
+import logo from "../../images/logo.png";
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
@@ -77,6 +77,7 @@ const Navbar = () => {
             aria-label="Accueil"
           >
             <img className='logo' src={logo} alt='Emoscan Logo'/>
+            <h1>AbsEmo</h1>
           </a>
         </div>
 
