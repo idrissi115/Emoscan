@@ -1,24 +1,30 @@
 /* Variables */
 :root {
-  --primary-color: #2563eb;
-  --primary-dark: #1d4ed8;
-  --secondary-color: #64748b;
-  --accent-color: #3b82f6;
+  --primary-color: #3b82f6; /* Bleu lumineux */
+  --primary-dark: #2563eb;
+  --secondary-color: #94a3b8;
+  --accent-color: #0ea5e9; /* Cyan électrique */
   --success-color: #22c55e;
   --danger-color: #ef4444;
-  --warning-color: #f59e0b;
-  --text-color: #1e293b;
-  --text-light: #64748b;
-  --background-light: #f8fafc;
-  --white: #ffffff;
+  --warning-color: #facc15;
+
+  --text-color: #f8fafc;       /* Texte clair */
+  --text-light: #94a3b8;
+  --background-light: #0f172a; /* Fond sombre */
+  --white: #1e293b;            /* Faux blanc sombre */
+
   --sidebar-width: 280px;
   --sidebar-collapsed-width: 80px;
   --header-height: 64px;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
+  --shadow-sm: 0 1px 2px 0 rgba(255, 255, 255, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(255, 255, 255, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(255, 255, 255, 0.1);
+
   --transition: all 0.3s ease;
+  --border-color: #334155;
 }
+
 
 /* Layout */
 .admin-dashboard {
@@ -978,4 +984,4 @@ td {
     flex: 1;
     min-width: 120px;
   }
-} 
+}

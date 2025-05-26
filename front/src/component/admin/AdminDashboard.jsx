@@ -102,7 +102,7 @@ const AdminDashboard = () => {
       <aside className={`admin-sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
           <div className="logo-container">
-            <h1>Emoscan</h1>
+            
           </div>
           <button 
             className="toggle-sidebar"
