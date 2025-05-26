@@ -1,10 +1,46 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Home.css';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../images/logo.png';
 
 function Home() {
   const navigate = useNavigate();
+  const networkCenterRef = useRef(null);
+  
+  // Effet pour créer les particules de données animées
+  useEffect(() => {
+    if (!networkCenterRef.current) return;
+    
+    const createDataParticle = () => {
+      const particle = document.createElement('div');
+      particle.className = 'data-particle';
+      
+      // Position et direction aléatoires
+      const angle = Math.random() * Math.PI * 2;
+      const distance = 30 + Math.random() * 20;
+      const tx = Math.cos(angle) * distance;
+      const ty = Math.sin(angle) * distance;
+      
+      particle.style.setProperty('--tx', `${tx}px`);
+      particle.style.setProperty('--ty', `${ty}px`);
+      
+      networkCenterRef.current.appendChild(particle);
+      
+      // Supprimer la particule après l'animation
+      setTimeout(() => {
+        if (particle && particle.parentNode) {
+          particle.remove();
+        }
+      }, 3000);
+    };
+    
+    // Créer des particules périodiquement
+    const particleInterval = setInterval(createDataParticle, 300);
+    
+    return () => {
+      clearInterval(particleInterval);
+    };
+  }, []);
 
   return (
     <div className="home dark-theme">
@@ -64,7 +100,12 @@ function Home() {
               </div>
               <div className="hero-visualization">
                 <div className="ai-network">
-                  <div className="network-center">
+                  <div className="network-center" ref={networkCenterRef}>
+                    <div className="center-icon">
+                      <div className="brain-icon">
+                        <div className="brain-pulse"></div>
+                      </div>
+                    </div>
                   </div>
                   <div className="network-nodes">
                     <div className="node node-1">
@@ -177,11 +218,11 @@ function Home() {
               <div className="contact-info">
                 <div className="contact-item">
                   <h3>Email</h3>
-                  <p>emoscan@esisa.ma</p>
+                  <p>AbsEmo@esisa.ma</p>
                 </div>
                 <div className="contact-item">
                   <h3>Téléphone</h3>
-                  <p>+212 6XX-XXXXXX</p>
+                  <p>+212 612 12 14 41</p>
                 </div>
                 <div className="contact-item">
                   <h3>Adresse</h3>
