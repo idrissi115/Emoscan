@@ -1,0 +1,13 @@
+# Ignorer toutes les images
+data/HACER_image_dataset/
+data/images_raw/
+
+# Ignorer les fichiers lourds
+*.zip
+*.tar.gz
+*.h5
+*.pth
+
+# Ignorer les fichiers temporaires
+__pycache__/
+*.pyc
